@@ -27,9 +27,9 @@ public interface CarRepository extends JpaRepository<Cars, String> {
     List<Cars> OrderBynome();
 
     @Query(value = "SELECT * FROM Cars WHERE valor = (SELECT MAX(valor) FROM Cars)",nativeQuery = true)
-    Cars findByMaisCaro();
+    List<Cars> findByMaisCaro();
 
     @Query(value = "SELECT * FROM Cars WHERE valor = (SELECT MIN(valor) FROM Cars)",nativeQuery = true)
-    Cars findByMaisBarato();
+    List<Cars> findByMaisBarato();
 
 }
